@@ -2,6 +2,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_selection import f_classif
 from sklearn.feature_selection import SelectKBest # para a Seleção Univariada
 from sklearn.preprocessing import LabelEncoder
+import pandas as pd
 
 from abc import ABC, abstractmethod
 
@@ -13,13 +14,14 @@ class PreProcessor(ABC):
 
 class SelectKBestPreProcessor(PreProcessor):
 
-    def __init__(self,k =4, seed =0, ratio=0.30):
+    def __init__(self,k =10, seed =0, ratio=0.30):
         print("Inicializando seleção de atributos com k={}".format(k)) 
         self.seed = seed
         self.ratio = ratio
         self.k = k
 
     def __init_features(self, dataset):
+        dataset = self.__drop_unecessary_cols(dataset)
         columns = dataset.columns.tolist()
         self.dataset = dataset
         self.features = columns[:-1]
@@ -27,15 +29,15 @@ class SelectKBestPreProcessor(PreProcessor):
 
     def __separate_feature_and_label(self):
         self.dataset.sort_index(inplace=True)
-        x = self.dataset[self.features].values
-        y = self.dataset[self.label].values
+        x = self.dataset[self.features]
+        y = self.dataset[self.label]
         return x,y
     
     def __fillna(self, col_name,value):
         self.dataset[col_name] = self.dataset[col_name].fillna(value)
     
-    def __drop_unecessary_cols(self):
-        self.df = self.df.drop(['Unnamed: 0', 'id'], axis=1)
+    def __drop_unecessary_cols(self,dataset):
+        return dataset.drop(['Unnamed: 0', 'id'], axis=1)
         
     
     def __encode_categorical_columns(self):
@@ -56,9 +58,13 @@ class SelectKBestPreProcessor(PreProcessor):
         self.dataset = df_encoded
         
     
-    def __selectKBest(self,X,y):
+    def __selectKBest(self, X, y):
         best_var = SelectKBest(score_func=f_classif, k=self.k)
         fit = best_var.fit(X, y)
+        
+        selected_features = X.columns[fit.get_support()]
+        print("Colunas selecionadas:", selected_features.tolist())
+        
         return fit.transform(X)
         
     def preprocess(self,dataset):
