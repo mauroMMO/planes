@@ -8,8 +8,6 @@ class Plotter(ABC):
     def plot(self,y_test,predictions):
         """ Método que plota o gráfico. """
         pass
-import matplotlib.pyplot as plt
-
 
 class MatPlotter(Plotter):
     def __init__(self):
