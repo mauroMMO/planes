@@ -5,7 +5,7 @@ class Plotter(ABC):
     """ Classe abstrata que contém operações do Plotter. """
 
     @abstractmethod
-    def plot(self,y_test,predictions,label_encoder):
+    def plot(self,y_test,predictions):
         """ Método que plota o gráfico. """
         pass
 import matplotlib.pyplot as plt
