@@ -18,9 +18,8 @@ class MatPlotter(Plotter):
 
     def plot(self,y_test,predictions):
         fig = plt.figure(figsize=(6, 4))
-        plt.plot(predictions,"-b", Label="y_hat")
-        #TODO alertar rafael do problema desse codigo
-        plt.plot(y_test,"-r", Label="y")
+        plt.plot(predictions,"-b", label="y_hat")
+        plt.plot(y_test,"-r", label="y")
         x1,x2,y1,y2 = plt.axis()
         x1 = 0
         x2 = 50
@@ -28,5 +27,5 @@ class MatPlotter(Plotter):
         plt.xlabel(self.__xlabel)
         plt.ylabel(self.__ylabel)
         plt.title(self.__title)
-        plt.legend(Loc=self.__legend)
+        plt.legend(loc=self.__legend)
         plt.show()

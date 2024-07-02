@@ -1,0 +1,15 @@
+Inicializando seleção de atributos com k=10
+KNNClassifier
+Colunas selecionadas: ['Type of Travel', 'Class', 'Flight Distance', 'Inflight wifi service', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Cleanliness']
+
+GridSearching KNN
+
+KNN - Melhor: 0.8634123806590699 usando {'KNN__metric': 'manhattan', 'KNN__n_neighbors': 9, 'KNN__weights': 'distance'}
+
+Training for KNN
+
+Estimation for KNN
+accuracy: 0.8757057796940766
+precision: 0.8834902699309479
+recall: 0.8249223374948713
+f1-score: 0.8532023885302052

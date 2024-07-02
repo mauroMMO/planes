@@ -1,0 +1,15 @@
+Inicializando seleção de atributos com k=10
+ExtraTreesClassifierModel
+Colunas selecionadas: ['Type of Travel', 'Class', 'Flight Distance', 'Inflight wifi service', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Cleanliness']
+
+GridSearching ET
+
+ET - Melhor: 0.9320361652514408 usando {'ET__max_depth': 10, 'ET__n_estimators': 200}
+
+Training for ET
+
+Estimation for ET
+accuracy: 0.932039831639462
+precision: 0.9264958276617151
+recall: 0.9175898247464979
+f1-score: 0.9220213204546793

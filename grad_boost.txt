@@ -1,0 +1,15 @@
+Inicializando sele��o de atributos com k=10
+GradientBoostingClassifierModel
+Colunas selecionadas: ['Type of Travel', 'Class', 'Flight Distance', 'Inflight wifi service', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Cleanliness']
+
+GridSearching GB
+
+GB - Melhor: 0.935973865986185 usando {'GB__learning_rate': 0.5, 'GB__n_estimators': 100}
+
+Training for GB
+
+Estimation for GB
+accuracy: 0.9357612154809568
+precision: 0.9393939393939394
+recall: 0.9121387960846374
+f1-score: 0.9255657656050198

@@ -1,0 +1,15 @@
+Inicializando seleção de atributos com k=10
+RandomForestClassifierModel
+Colunas selecionadas: ['Type of Travel', 'Class', 'Flight Distance', 'Inflight wifi service', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Cleanliness']
+
+GridSearching RF
+
+RF - Melhor: 0.937755730564477 usando {'RF__max_depth': 10, 'RF__n_estimators': 50}
+
+Training for RF
+
+Estimation for RF
+accuracy: 0.9361718509393286
+precision: 0.934060042887777
+recall: 0.9191137682433621
+f1-score: 0.9265266329876806

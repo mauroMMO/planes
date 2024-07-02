@@ -1,0 +1,15 @@
+Inicializando seleção de atributos com k=10
+BaggingClassifierModel
+Colunas selecionadas: ['Type of Travel', 'Class', 'Flight Distance', 'Inflight wifi service', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Cleanliness']
+
+GridSearching Bag
+
+Bag - Melhor: 0.9376237405957147 usando {'Bag__max_samples': 0.5, 'Bag__n_estimators': 200}
+
+Training for Bag
+
+Estimation for Bag
+accuracy: 0.9390719638640797
+precision: 0.9436892030693009
+recall: 0.9154797491354552
+f1-score: 0.929370462929906

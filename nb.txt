@@ -1,0 +1,15 @@
+Inicializando seleção de atributos com k=10
+NaiveBayesClassifier
+Colunas selecionadas: ['Type of Travel', 'Class', 'Flight Distance', 'Inflight wifi service', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Cleanliness']
+
+GridSearching NB
+
+NB - Melhor: 0.8494874389546394 usando {}
+
+Training for NB
+
+Estimation for NB
+accuracy: 0.8499384046812443
+precision: 0.8266721044045677
+recall: 0.8316628568079245
+f1-score: 0.8291599707815924
