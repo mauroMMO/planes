@@ -41,7 +41,8 @@ class Controller():
             #Evaluation
             print('\nEstimation for {}'.format(name))
             model.evaluate(y_test,predictions)
-            self.__plotter.plot(y_test,predictions)
+            y_test_prepared, predictions_prepared = self.__preProcessor.prepare_labels(y_test, predictions)
+            self.__plotter.plot(y_test_prepared,predictions_prepared)
 
     
     def run(self):

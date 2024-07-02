@@ -8,7 +8,7 @@ from model import LogisticRegressionClassifier, KNNClassifier, NaiveBayesClassif
 
 
 
-with open('grad_boost.txt', 'w') as f:
+with open('nb.txt', 'w') as f:
     sys.stdout = f
     # Instancia o carregador de dados
     data_loader = DataLoaderFromLocal('planes_1.csv', 'planes_2.csv')
@@ -20,14 +20,13 @@ with open('grad_boost.txt', 'w') as f:
     matPlotter = MatPlotter()
 
     models = [
-        #LogisticRegressionClassifier(),
+        
         #KNNClassifier(),
-        #NaiveBayesClassifier(),
-        #SVMClassifier(),
+        NaiveBayesClassifier(),
         #BaggingClassifierModel(),
         #RandomForestClassifierModel(),
         #ExtraTreesClassifierModel(),
-        GradientBoostingClassifierModel()
+        #GradientBoostingClassifierModel()
     ]
 
     controller = Controller(data_loader,preprocessor,models,matPlotter)

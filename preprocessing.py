@@ -19,6 +19,7 @@ class SelectKBestPreProcessor(PreProcessor):
         self.seed = seed
         self.ratio = ratio
         self.k = k
+        self.label_encoders = {}
 
     def __init_features(self, dataset):
         dataset = self.__drop_unecessary_cols(dataset)
@@ -47,14 +48,13 @@ class SelectKBestPreProcessor(PreProcessor):
         :param df: DataFrame contendo os dados
         :return: DataFrame com colunas categóricas codificadas
         """
-        label_encoders = {}
+       
         df_encoded = self.dataset.copy()
 
         for column in df_encoded.select_dtypes(include=['object']).columns:
             le = LabelEncoder()
             df_encoded[column] = le.fit_transform(df_encoded[column].astype(str))
-            label_encoders[column] = le
-        self.labels = label_encoders
+            self.label_encoders[column] = le  
         self.dataset = df_encoded
         
     
@@ -66,7 +66,13 @@ class SelectKBestPreProcessor(PreProcessor):
         print("Colunas selecionadas:", selected_features.tolist())
         
         return fit.transform(X)
+    
+    def prepare_labels(self, y_test, predictions):
         
+        y_test_decoded = self.label_encoders['satisfaction'].inverse_transform(y_test)
+        predictions_decoded = self.label_encoders['satisfaction'].inverse_transform(predictions)
+        return y_test_decoded, predictions_decoded
+       
     def preprocess(self,dataset):
         self.__init_features(dataset)
         self.__fillna('Arrival Delay in Minutes',0.0)
