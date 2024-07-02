@@ -42,13 +42,6 @@ class SelectKBestPreProcessor(PreProcessor):
         
     
     def __encode_categorical_columns(self):
-        """
-        Codifica colunas categóricas em um DataFrame substituindo os valores pelos números.
-
-        :param df: DataFrame contendo os dados
-        :return: DataFrame com colunas categóricas codificadas
-        """
-       
         df_encoded = self.dataset.copy()
 
         for column in df_encoded.select_dtypes(include=['object']).columns:
@@ -63,8 +56,8 @@ class SelectKBestPreProcessor(PreProcessor):
         fit = best_var.fit(X, y)
         
         selected_features = X.columns[fit.get_support()]
-        print("Colunas selecionadas:", selected_features.tolist())
-        
+        print("Colunas selecionadas:\n", selected_features.tolist())
+        print("Colunas alvo: 'satisfaction'")
         return fit.transform(X)
     
     def prepare_labels(self, y_test, predictions):
